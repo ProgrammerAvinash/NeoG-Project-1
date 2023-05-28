@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar";
 import { Cart } from "./Components/Cart";
 import { Wishlist } from "./Components/Wishlist";
 import { Signin } from "./Components/Signin";
+import { Products } from "./Components/ProductsComponent";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/Wishlist" element={<Wishlist />} />
         <Route path="/Signin" element={<Signin />} />
+        <Route path="/Products" element={<Products />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>

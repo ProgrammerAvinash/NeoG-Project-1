@@ -4,7 +4,7 @@ export const DataProvider = ({ children }) => {
   const [responseData, setResponseData] = useState();
   const getData = async () => {
     try {
-      const resp = await fetch("/api/products");
+      const resp = await fetch("/api/categories");
       setResponseData(await resp.json());
       console.log(responseData);
     } catch (error) {

@@ -7,21 +7,47 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    title: "T-shirts",
+    imageURL:
+      "https://i.ibb.co/tL9zbpt/keagan-henman-x-PJYL0l5-Ii8-unsplash.jpg",
+    id: "1",
+    categoryName: "T-shirts",
   },
   {
-    _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    title: "Shorts",
+    imageURL: "https://i.ibb.co/GJzZY1s/pexels-fauxels-3228855.jpg",
+    id: "2",
+    categoryName: "Shorts",
   },
   {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    title: "Shirts",
+    imageURL: "https://i.ibb.co/KGDjgcp/shirts.jpg",
+    id: "3",
+    categoryName: "Shirts",
+  },
+  {
+    title: "Jeans",
+    imageURL:
+      "https://i.ibb.co/cbd0GVf/waldemar-brandt-UP9-Dt-Tj-RYp-I-unsplash.jpg",
+    id: "4",
+    categoryName: "Jeans",
+  },
+  {
+    title: "Jackets",
+    imageURL: "https://i.ibb.co/px2tCc3/jackets.png",
+    id: "5",
+    categoryName: "Jackets",
+  },
+  {
+    title: "Track",
+    imageURL: "https://i.ibb.co/1z8zhs8/pexels-malcolm-garret-10365597.jpg",
+    id: "6",
+    categoryName: "Track",
+  },
+  {
+    title: "Hoodie",
+    imageURL: "https://i.ibb.co/DL4d9vP/Hoodie.jpg",
+    id: "7",
+    categoryName: "Hoodie",
   },
 ];

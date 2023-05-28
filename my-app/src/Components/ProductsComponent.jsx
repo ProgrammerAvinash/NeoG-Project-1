@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../Context/ProductContext";
 import { CartContext } from "../Context/CartContext";
-export const Cart = () => {
-  const { cart } = useContext(CartContext);
+export const Products = () => {
+  const { responseProductData } = useContext(ProductContext);
+  const { handleCartUpdate } = useContext(CartContext);
   return (
     <div
       className="container"
       style={{ display: "flex", justifyContent: "center" }}
     >
-      {cart.map((item) => {
+      {responseProductData?.products?.map((item) => {
+        function handleAddToCartClick(item) {
+          handleCartUpdate(item);
+        }
         return (
           <div>
             <div className="imgContainer">
@@ -22,6 +26,12 @@ export const Cart = () => {
                 <p style={{ margin: "0" }}>
                   <b>{item.price} Rs</b>
                 </p>
+                <button
+                  onClick={() => handleAddToCartClick(item)}
+                  style={{ cursor: "pointer" }}
+                >
+                  Add To Cart{" "}
+                </button>
               </div>
             </div>
           </div>
