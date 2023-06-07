@@ -10,6 +10,7 @@ export const initialState = {
   products: [],
   cart: [],
   wishlist: [],
+  Login: "false",
 };
 
 export const dataReducer = (state, action) => {
@@ -28,7 +29,7 @@ export const dataReducer = (state, action) => {
         ...state,
         products: action.payload,
       };
-    case "`CLEAR_FILTER`":
+    case "CLEAR_FILTER":
       return {
         ...state,
         filter: {
@@ -101,6 +102,12 @@ export const dataReducer = (state, action) => {
           ...state.filter,
           sort: action.payload,
         },
+      };
+
+    case "LOGGED_IN":
+      return {
+        ...state,
+        Login: [action.payload],
       };
     default:
       return state;
