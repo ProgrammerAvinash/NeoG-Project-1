@@ -176,4 +176,14 @@ export const products = [
     orignalPrice: 899,
     rating: 3.0,
   },
+  {
+    title: "Shorts",
+    Name: "Nike Short ",
+    imageURL: "https://i.ibb.co/zS964Xk/nike-shorts.jpg",
+    id: "18",
+    category: "Shorts",
+    price: 499,
+    orignalPrice: 899,
+    rating: 4.0,
+  },
 ];
