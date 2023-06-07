@@ -39,7 +39,6 @@ const Homepage = () => {
                     className="imgclassHome"
                   />
                   <h2>{title}</h2>
-                  {console.log(state)}
                 </div>
               </div>
             );
