@@ -10,11 +10,24 @@ export const ProductDetail = () => {
     state?.products?.find(({ id }) => id === productId);
 
   const productFound = getProductDetails(productId, state);
-  console.log(productFound, "a");
+
   return (
-    <>
-      <img src={productFound.imageURL} alt="imgs" />
+    <div>
+      <div className="imageContainer">
+        <img
+          src={productFound.imageURL}
+          alt="imgs"
+          style={{ height: "30em" }}
+        />
+      </div>
       <h1>{productFound.Name}</h1>
-    </>
+      <h4 style={{ margin: 0, padding: 0 }}>Price : {productFound.price} Rs</h4>
+      <h4>
+        Orignal Price:
+        <span style={{ textDecoration: "line-through", margin: 0, padding: 0 }}>
+          {productFound.orignalPrice}Rs{" "}
+        </span>{" "}
+      </h4>
+    </div>
   );
 };
