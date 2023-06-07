@@ -20,14 +20,16 @@ const Checkout = () => {
   );
   console.log(valueCart);
   console.log(OrignalvalueCart);
-  return (
-    <div className="CheckOutContainer">
-      <h4>M.R.P : {OrignalvalueCart.total}</h4>
-      <h4>Discount : - {OrignalvalueCart.total - valueCart.total} </h4>
-      <h4>Total Cart Value : {valueCart.total}</h4>
-      <button>CheckOut</button>
-    </div>
-  );
+  if (valueCart.total !== 0) {
+    return (
+      <div className="CheckOutContainer">
+        <h4>M.R.P : {OrignalvalueCart.total}</h4>
+        <h4>Discount : - {OrignalvalueCart.total - valueCart.total} </h4>
+        <h4>Total Cart Value : {valueCart.total}</h4>
+        <button>CheckOut</button>
+      </div>
+    );
+  }
 };
 
 export default Checkout;
