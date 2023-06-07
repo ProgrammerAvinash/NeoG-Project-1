@@ -1,0 +1,29 @@
+.signIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signInInput {
+  width: 15em;
+  height: 2em;
+  margin: 0.5rem;
+}
+
+button {
+  width: 10em;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.signInInput:hover {
+  border: 2px solid #f1795c;
+}
+button:hover {
+  border: 2px solid #f1795c;
+  color: #f1795c;
+  box-shadow: 2px 2px #f1795c;
+  cursor: pointer;
+  font-weight: bold;
+}
