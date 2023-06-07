@@ -29,3 +29,6 @@
 icon:hover {
   cursor: pointer;
 }
+.imgclass:hover {
+  background: #f1795c;
+}
