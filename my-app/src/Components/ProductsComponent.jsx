@@ -1,48 +1,111 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext";
-import { CartContext } from "../Context/CartContext";
-import { useNavigate } from "react-router-dom";
+// import { ProductContext } from "../Context/ProductContext";
+// import { CartContext } from "../Context/CartContext";
+import { NavLink, useNavigate } from "react-router-dom";
 import Filter from "./Filter";
-export const Products = () => {
-  const { state } = useContext(ProductContext);
-  const { handleCartUpdate } = useContext(CartContext);
+import { DataContext } from "../Context/DataContext";
+import "./ProductsComponent.css";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+export const ProductsComponent = () => {
+  const {
+    state: { filter, products, cart, wishlist },
+    handleCartUpdate,
+    handleWishlistUpdate,
+  } = useContext(DataContext);
+
   const Navigate = useNavigate();
 
+  const { searchValue, sort, selectedCategory, price } = filter;
+  const transformData = () => {
+    let filteredData = [...products];
+
+    if (searchValue) {
+      filteredData = filteredData.filter((product) =>
+        product.Name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    }
+
+    if (price) {
+      filteredData = filteredData.filter((product) => product.price <= price);
+    }
+
+    if (sort) {
+      filteredData = filteredData.sort((a, b) =>
+        sort === "Low-to-High" ? a.price - b.price : b.price - a.price
+      );
+    }
+    if (selectedCategory.length > 0) {
+      filteredData = filteredData.filter((prod) =>
+        selectedCategory.some((category) => category === prod.category)
+      );
+    }
+    return filteredData;
+  };
+
   return (
-    <div
-      className="container"
-      style={{ display: "flex", justifyContent: "center" }}
-    >
-      <Filter />
-      {state?.products?.map((item) => {
-        function handleAddToCartClick(item) {
-          handleCartUpdate(item);
-        }
-        return (
-          <div>
-            <div className="imgContainer">
-              <div key={item.id}>
-                <img
-                  onClick={() => Navigate(`/products/${item.id}`)}
-                  src={item.imageURL}
-                  alt="productImage"
-                  className="imgclass"
-                />
-                <h2 style={{ margin: "0" }}>{item.Name}</h2>
-                <p style={{ margin: "0" }}>
-                  <b>{item.price} Rs</b>
-                </p>
-                <button
-                  onClick={() => handleAddToCartClick(item)}
-                  style={{ cursor: "pointer" }}
-                >
-                  Add To Cart{" "}
-                </button>
+    <div className="ProductContainer">
+      <div className="filter">
+        <Filter />
+      </div>
+      <div className="ProductListing">
+        {transformData()?.map((item) => {
+          return (
+            <div>
+              <div className="imgContainer">
+                <div key={item.id}>
+                  <div className="wishlistContainer">
+                    {wishlist.some((data) => data.id === item.id) ? (
+                      <span onClick={() => handleWishlistUpdate(item)}>
+                        <FontAwesomeIcon
+                          icon={icon({ name: "heart" })}
+                          size="xl"
+                          style={{ color: "#f1795c" }}
+                        />{" "}
+                      </span>
+                    ) : (
+                      <span onClick={() => handleWishlistUpdate(item)}>
+                        <FontAwesomeIcon
+                          icon={icon({ name: "heart" })}
+                          size="xl"
+                          style={{ color: "grey" }}
+                        />{" "}
+                      </span>
+                    )}
+                  </div>
+
+                  <img
+                    onClick={() => Navigate(`/products/${item.id}`)}
+                    src={item.imageURL}
+                    alt="productImage"
+                    className="imgclass"
+                  />
+                  <h2 style={{ margin: "0" }}>{item.Name}</h2>
+                  <p style={{ margin: "0" }}>
+                    <b>{item.price} Rs</b>
+                  </p>
+                  <div className="btnCart">
+                    {cart?.some((data) => data.id === item.id) ? (
+                      <NavLink to="/cart">
+                        <button style={{ cursor: "pointer" }}>
+                          Go To Cart
+                        </button>
+                      </NavLink>
+                    ) : (
+                      <button
+                        onClick={() => handleCartUpdate(item)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        Add To Cart{" "}
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
