@@ -1,0 +1,31 @@
+.ProductContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ProductListing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.imgclass {
+  opacity: 1;
+  cursor: pointer;
+  height: 10em;
+  width: 20em;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 12px;
+  margin-bottom: 0;
+}
+.wishlistContainer {
+  position: relative;
+  z-index: 1;
+  left: 8em;
+  top: 4em;
+}
+
+icon:hover {
+  cursor: pointer;
+}

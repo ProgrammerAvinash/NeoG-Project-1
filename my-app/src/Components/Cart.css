@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+}
+.CartContainer {
+  padding: 5px;
+  margin: 2em;
+  border: 2px solid black;
+}

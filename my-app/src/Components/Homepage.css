@@ -1,19 +1,58 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .imgContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
-.imgclass {
+.imgclassHome:hover {
+  background: #f1795c;
+  opacity: 1;
+}
+.imgclassHome {
+  opacity: 0.7;
   cursor: pointer;
-  height: 20em;
-  width: 30em;
+  height: 10em;
+  width: 20em;
   padding: 10px;
   border: 1px solid black;
   border-radius: 2px;
   margin: 12px;
   margin-bottom: 0;
+}
+
+.videoHome {
+  margin: 0px;
+  height: auto;
+  width: auto;
+  padding-top: 10px;
+  margin-bottom: -110px;
+}
+video {
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+}
+.buttonShop {
+  position: absolute;
+  z-index: 1;
+  top: 23em;
+  left: 35em;
+}
+.btnShop {
+  height: 5em;
+  width: 10rem;
+  border-radius: 15px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+.btnShop:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  border: 0.5px solid #f1795c;
+  color: #f1795c;
+  font-weight: bold;
 }

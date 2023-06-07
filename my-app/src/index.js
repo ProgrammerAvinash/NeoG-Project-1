@@ -5,8 +5,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { DataProvider, DataContext } from "./Context/DataContext";
-import { ProductDataProvider } from "./Context/ProductContext";
-import { CartProvider } from "./Context/CartContext";
+// import { ProductDataProvider } from "./Context/ProductContext";
 
 // Call make Server
 makeServer();
@@ -15,11 +14,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <DataProvider>
-        <CartProvider>
-          <ProductDataProvider>
-            <App />
-          </ProductDataProvider>
-        </CartProvider>
+        {/* <ProductDataProvider> */}
+        <App />
+        {/* </ProductDataProvider> */}
       </DataProvider>
     </BrowserRouter>
   </React.StrictMode>

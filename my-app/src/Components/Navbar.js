@@ -3,7 +3,19 @@ import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Navbar.css";
+import { useContext } from "react";
+import { DataContext } from "../Context/DataContext";
 const Navbar = () => {
+  const {
+    state: { cart, wishlist },
+    dispatch,
+  } = useContext(DataContext);
+
+  const handleProductSearch = (e) => {
+    // navigate("./ProductsComponent.jsx");
+
+    dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value });
+  };
   return (
     <div className="nav-container">
       <nav>
@@ -31,6 +43,7 @@ const Navbar = () => {
           htmlFor="buttonSearch"
           placeholder="Search"
           type="text"
+          onChange={handleProductSearch}
         />
         <nav style={{ float: "right", margin: "1rem" }}>
           <NavLink to="/Signin">
@@ -47,6 +60,7 @@ const Navbar = () => {
               size="xl"
               style={{ color: "#f1795c", margin: "5px" }}
             />{" "}
+            <span>{wishlist.length === 0 ? "" : wishlist.length}</span>
           </NavLink>{" "}
           <NavLink to="/cart">
             {" "}
@@ -55,6 +69,7 @@ const Navbar = () => {
               size="xl"
               style={{ color: "#f1795c", margin: "5px" }}
             />
+            <span>{cart.length === 0 ? "" : cart.length}</span>
           </NavLink>{" "}
         </nav>
       </nav>
