@@ -7,11 +7,11 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    title: "T-shirts",
+    title: "Tshirts",
     imageURL:
       "https://i.ibb.co/tL9zbpt/keagan-henman-x-PJYL0l5-Ii8-unsplash.jpg",
     id: "1",
-    categoryName: "T-shirts",
+    categoryName: "Tshirts",
   },
   {
     title: "Shorts",
