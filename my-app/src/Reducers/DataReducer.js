@@ -16,7 +16,6 @@ export const initialState = {
 export const dataReducer = (state, action) => {
   switch (action.type) {
     case "INITIALIZE_CATEGORIES":
-      // console.log(state);
       return { ...state, categories: action.payload };
     case "SEARCH_PRODUCT":
       console.log(state.filter.searchValue);

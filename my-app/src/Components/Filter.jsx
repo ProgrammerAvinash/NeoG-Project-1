@@ -37,14 +37,14 @@ export default function Filter() {
               <span
                 style={{
                   padding: "2px",
-                  fontSize: priceRange == 200 ? "Large" : "",
+                  fontSize: priceRange === 200 ? "Large" : "",
                 }}
               >
                 200
               </span>
               <span
                 style={{
-                  fontSize: priceRange == 400 ? "Large" : "",
+                  fontSize: priceRange === 400 ? "Large" : "",
                   padding: "2px",
                 }}
               >
@@ -53,7 +53,7 @@ export default function Filter() {
               <span
                 style={{
                   padding: "2px",
-                  fontSize: priceRange == 600 ? "Large" : "",
+                  fontSize: priceRange === 600 ? "Large" : "",
                 }}
               >
                 600

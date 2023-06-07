@@ -14,10 +14,12 @@ export const ProductsComponent = () => {
 
   const Navigate = useNavigate();
 
-  const { searchValue, sort, selectedCategory, price } = filter;
+  const { searchValue, sort, selectedCategory, price, rating } = filter;
   const transformData = () => {
     let filteredData = [...products];
-
+    if (rating) {
+      filteredData = filteredData.filter((product) => product.rating >= rating);
+    }
     if (searchValue) {
       filteredData = filteredData.filter((product) =>
         product.Name.toLowerCase().includes(searchValue.toLowerCase())
@@ -79,6 +81,7 @@ export const ProductsComponent = () => {
                     className="imgclass"
                   />
                   <h2 style={{ margin: "0" }}>{item.Name}</h2>
+                  <h3>Rating :{item.rating}</h3>
                   <h4 style={{ margin: "0" }}>
                     Deal Price:<b> {item.price} Rs</b>
                   </h4>
