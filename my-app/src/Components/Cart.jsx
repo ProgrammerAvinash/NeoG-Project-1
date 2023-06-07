@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext";
-import { CartContext } from "../Context/CartContext";
+import { DataContext } from "../Context/DataContext";
+import "./Cart.css";
 export const Cart = () => {
-  const { cart } = useContext(CartContext);
+  const {
+    state: { cart },
+    handleRemoveCart,
+  } = useContext(DataContext);
   return (
     <div
       className="container"
       style={{ display: "flex", justifyContent: "center" }}
     >
-      {cart.map((item) => {
+      {cart?.map((item) => {
         return (
-          <div>
+          <div className="CartContainer">
             <div className="imgContainer">
               <div key={item.id}>
                 <img
@@ -22,6 +25,7 @@ export const Cart = () => {
                 <p style={{ margin: "0" }}>
                   <b>{item.price} Rs</b>
                 </p>
+                <button onClick={() => handleRemoveCart(item)}>Remove </button>
               </div>
             </div>
           </div>
