@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
-// import { ProductContext } from "../Context/ProductContext";
-// import { CartContext } from "../Context/CartContext";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, useNavigate } from "react-router-dom";
 import Filter from "./Filter";
 import { DataContext } from "../Context/DataContext";
 import "./ProductsComponent.css";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const ProductsComponent = () => {
   const {
     state: { filter, products, cart, wishlist },
@@ -81,9 +79,17 @@ export const ProductsComponent = () => {
                     className="imgclass"
                   />
                   <h2 style={{ margin: "0" }}>{item.Name}</h2>
-                  <p style={{ margin: "0" }}>
-                    <b>{item.price} Rs</b>
+                  <h4 style={{ margin: "0" }}>
+                    Deal Price:<b> {item.price} Rs</b>
+                  </h4>
+                  <p>
+                    {" "}
+                    Orignal Price :
+                    <span style={{ textDecoration: "line-through red 2px" }}>
+                      {item.orignalPrice} Rs
+                    </span>
                   </p>
+
                   <div className="btnCart">
                     {cart?.some((data) => data.id === item.id) ? (
                       <NavLink to="/cart">
