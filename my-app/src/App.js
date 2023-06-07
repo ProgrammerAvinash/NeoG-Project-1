@@ -10,6 +10,8 @@ import { Signin } from "./Components/Signin";
 import { ProductsComponent } from "./Components/ProductsComponent";
 import { ProductDetail } from "./Components/ProductDetail";
 import Footer from "./Components/footer";
+import { RequiresAuth } from "./Components/RequiresAuth";
+const { isLoggedIn } = RequiresAuth;
 function App() {
   return (
     <div className="App">
@@ -17,8 +19,24 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/Wishlist" element={<Wishlist />} />
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth isLoggedIn={isLoggedIn}>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+
+        <Route
+          path="/Wishlist"
+          element={
+            <RequiresAuth isLoggedIn={isLoggedIn}>
+              {" "}
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Products" element={<ProductsComponent />} />
         <Route path="/Products/:productId" element={<ProductDetail />} />
