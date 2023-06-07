@@ -1,35 +1,44 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Context/DataContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./SignIn.css";
 export const Signin = () => {
-  const { isLoggedIn, handleLogin } = useContext(DataContext);
-  // const [signInData, setSignInData] = useState({ email: "", password: "" });
+  const { isLoggedIn, handleTestLogin, emailData, passwordData } =
+    useContext(DataContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // const handelSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setSignInData({ email: "", password: "" });
-  // };
-  // const handleChange = (e) => {
-  //   console.log(e.target.value);
-  // };
-
+  const handleLogin = () => {
+    navigate(location?.state?.from?.pathname);
+  };
   return (
     <div className="signIn">
-      <h2> I have already an account </h2>
-      <span>Sign i with your Email and Password</span>
-
-      <input type="email" name="email" required />
+      <h4>SignIn with your Email and Password</h4>
       <label>Email</label>
-      <input type="password" name="password" required />
-
+      <input
+        className="signInInput"
+        type="email"
+        placeholder="Enter Your Email"
+        name="email"
+        required
+        value={emailData}
+      />
       <label>Password</label>
-      <input type="submit" value="submit form" />
+      <input
+        className="signInInput"
+        type="password"
+        placeholder="Enter Password"
+        name="password"
+        value={passwordData}
+        required
+      />
 
-      <button onClick={() => handleLogin(!isLoggedIn)}>
-        {!isLoggedIn ? "Login Guest" : "Logout"}
+      <button onClick={handleLogin}>login</button>
+
+      <button onClick={() => handleTestLogin(!isLoggedIn)}>
+        {!isLoggedIn ? "Click Here For Test Credientials " : "Please Log In"}
       </button>
-      {console.log(isLoggedIn)}
-      {/* </form> */}
+      <h4>{isLoggedIn ? "TEST USER LOGGED IN" : ""}</h4>
     </div>
   );
 };
