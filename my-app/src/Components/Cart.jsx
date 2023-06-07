@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import "./Cart.css";
+import Checkout from "./Checkout";
 export const Cart = () => {
   const {
     state: { cart },
@@ -11,6 +12,7 @@ export const Cart = () => {
       className="container"
       style={{ display: "flex", justifyContent: "center" }}
     >
+      {cart?.length === 0 && <h1> Your Cart is Empty </h1>}
       {cart?.map((item) => {
         return (
           <div className="CartContainer">
@@ -23,7 +25,7 @@ export const Cart = () => {
                 />
                 <h2 style={{ margin: "0" }}>{item.Name}</h2>
                 <p style={{ margin: "0" }}>
-                  <b>{item.price} Rs</b>
+                  <b>{item.price !== 0 ? item.price : ""} Rs</b>
                 </p>
                 <button onClick={() => handleRemoveCart(item)}>Remove </button>
               </div>
@@ -31,6 +33,7 @@ export const Cart = () => {
           </div>
         );
       })}
+      <Checkout />
     </div>
   );
 };
