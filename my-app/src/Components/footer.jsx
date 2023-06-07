@@ -3,14 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div
+      className="footer"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {/* <p>&#169; Swaroop Mens Wear 2023</p> */}
       <p>&copy; 2023</p>
-      <div>
+      <div style={{ margin: "10px" }}>
         <a href="https://github.com/ProgrammerAvinash" target="_blank">
           <i
             class="fa fa-github"
-            style={{ fontSize: "40px", pointer: "cursor" }}
+            style={{ fontSize: "40px", pointer: "cursor", margin: "10px" }}
           ></i>{" "}
         </a>
         <a
