@@ -11,6 +11,7 @@ import { ProductsComponent } from "./Components/ProductsComponent";
 import { ProductDetail } from "./Components/ProductDetail";
 import Footer from "./Components/footer";
 import { RequiresAuth } from "./Components/RequiresAuth";
+import Error from "./Components/Error";
 const { isLoggedIn } = RequiresAuth;
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/*" element={<Error />} />
         <Route
           path="/cart"
           element={

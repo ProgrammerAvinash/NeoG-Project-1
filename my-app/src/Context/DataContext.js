@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useReducer, useState } from "react";
 import { dataReducer, initialState } from "../Reducers/DataReducer";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const DataContext = createContext();
 
@@ -44,17 +45,21 @@ export const DataProvider = ({ children }) => {
 
   const handleCartUpdate = (item) => {
     dispatch({ type: "ADD_TO_CART", payload: item });
+    toast("Added To Cart");
   };
 
   const handleRemoveCart = (item) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: item });
+    toast("Item Removed");
   };
 
   const handleWishlistUpdate = (item) => {
     dispatch({ type: "ADD_TO_WISHLIST", payload: item });
+    toast("Added To Wish List");
   };
   const handleRemoveWishlist = (item) => {
     dispatch({ type: "REMOVE_FROM_WISHLIST", payload: item });
+    toast("Removed From WishList");
   };
   const handleTestLogin = () => {
     const emailDummy = "TestUser@123";
@@ -63,6 +68,7 @@ export const DataProvider = ({ children }) => {
     setPasswordData(passDummy);
     setIsLoggedIn(!isLoggedIn);
     navigate(location?.state?.from?.pathname);
+    toast("Logged IN");
   };
   return (
     <DataContext.Provider

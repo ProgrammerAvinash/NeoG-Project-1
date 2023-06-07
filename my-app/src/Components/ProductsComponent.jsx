@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Filter from "./Filter";
 import { DataContext } from "../Context/DataContext";
 import "./ProductsComponent.css";
@@ -111,6 +113,7 @@ export const ProductsComponent = () => {
                   </div>
                 </div>
               </div>
+              <ToastContainer />
             </div>
           );
         })}

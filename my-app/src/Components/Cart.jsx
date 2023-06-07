@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import "./Cart.css";
 import Checkout from "./Checkout";
+import { ToastContainer } from "react-toastify";
 export const Cart = () => {
   const {
     state: { cart },
@@ -34,6 +35,7 @@ export const Cart = () => {
         );
       })}
       <Checkout />
+      <ToastContainer />
     </div>
   );
 };

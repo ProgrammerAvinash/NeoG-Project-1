@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { DataContext } from "../Context/DataContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./SignIn.css";
+import { ToastContainer, toast } from "react-toastify";
 export const Signin = () => {
   const { isLoggedIn, handleTestLogin, emailData, passwordData } =
     useContext(DataContext);
@@ -36,9 +37,10 @@ export const Signin = () => {
       <button onClick={handleLogin}>login</button>
 
       <button onClick={() => handleTestLogin(!isLoggedIn)}>
-        {!isLoggedIn ? "Click Here For Test Credientials " : "Please Log In"}
+        {!isLoggedIn ? "Click Here For Test Credientials " : ` Logout`}
       </button>
       <h4>{isLoggedIn ? "TEST USER LOGGED IN" : ""}</h4>
+      <ToastContainer />
     </div>
   );
 };
