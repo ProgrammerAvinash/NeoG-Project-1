@@ -11,6 +11,7 @@ export const Wishlist = () => {
       className="container"
       style={{ display: "flex", justifyContent: "center" }}
     >
+      {wishlist?.length === 0 && <h1> YourCart is Empty </h1>}
       {wishlist?.map((item) => {
         return (
           <div className="WishlistContainer">
